@@ -17,21 +17,15 @@ namespace RefactorKata
             //TODO : Replace with Dapper
             while (reader.Read())
             {
-                var prod = new Product { name = reader["Name"].ToString() };
+                var prod = new Product { Name = reader["Name"].ToString() };
                 products.Add(prod);
             }
             conn.Dispose();
             foreach (var product in products)
             {
-                Console.WriteLine(product.name);
+                Console.WriteLine(product.Name);
             }
                 ;
         }
     }
-}
-public class Product
-{
-    public string name;
-    public string Name { get { return name; } set { name = value; } }
-}
 }

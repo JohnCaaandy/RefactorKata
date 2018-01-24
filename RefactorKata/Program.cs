@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlClient; 
+using System.Data.SqlClient;
 namespace RefactorKata
 {
     class Program
@@ -12,13 +12,12 @@ namespace RefactorKata
             var cmd = conn.CreateCommand();
             cmd.CommandText = "select * from Products";
             var reader = cmd.ExecuteReader();
-            List<Product> products = new List<Product>();
+            var products = new List<Product>();
 
-            //TODO: Replace with Dapper
+            //TODO : Replace with Dapper
             while (reader.Read())
             {
-                var prod = new Product();
-                prod.name = reader["Name"].ToString();
+                var prod = new Product {name = reader["Name"].ToString() };
                 products.Add(prod);
             }
             conn.Dispose();

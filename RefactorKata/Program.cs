@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using System.Data.SqlClient; 
 namespace RefactorKata
 {
     class Program
     {
         static void Main(string[] args)
         {
-            var conn = new System.Data.SqlClient.SqlConnection("Server=.;Database=myDataBase;User Id=myUsername;Password = myPassword;");
+            var conn = new SqlConnection("Server=.;Database=myDataBase;User Id=myUsername;Password = myPassword;");
 
             var cmd = conn.CreateCommand();
             cmd.CommandText = "select * from Products";
